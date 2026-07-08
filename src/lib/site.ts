@@ -1,11 +1,10 @@
-/** GitHub Pages mirror — works well in China without VPN */
+/** GitHub Pages site URL */
 export const mirrorSiteUrl =
-  process.env.NEXT_PUBLIC_MIRROR_URL ??
-  "https://leonardlxl.github.io/teyvat-closet-intl/";
+  process.env.NEXT_PUBLIC_MIRROR_URL ?? "https://leonardlxl.github.io/eona/";
 
 /**
- * Vercel URL — set NEXT_PUBLIC_PRIMARY_URL in Vercel dashboard to your real Visit link.
- * Do NOT use eona.vercel.app (that domain belongs to another project).
+ * Vercel URL — set NEXT_PUBLIC_PRIMARY_URL in Vercel dashboard to your Visit link.
+ * Note: eona.vercel.app is used by another project; use your assigned *.vercel.app URL.
  */
 export const primarySiteUrl =
   process.env.NEXT_PUBLIC_PRIMARY_URL || mirrorSiteUrl;
@@ -17,7 +16,6 @@ export const cnSiteUrl =
 /** @deprecated use primarySiteUrl */
 export const intlSiteUrl = primarySiteUrl;
 
-/** True when a separate Vercel URL is configured */
 export const hasVercelMirror =
   Boolean(process.env.NEXT_PUBLIC_PRIMARY_URL) &&
   process.env.NEXT_PUBLIC_PRIMARY_URL !== mirrorSiteUrl;
