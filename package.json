@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --port 3001",
     "build": "next build",
+    "build:static": "cross-env STATIC_EXPORT=1 BASE_PATH=/teyvat-closet-intl next build",
     "start": "next start --port 3001",
     "lint": "eslint"
   },
@@ -20,6 +21,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "^15.3.3",
+    "cross-env": "^7.0.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

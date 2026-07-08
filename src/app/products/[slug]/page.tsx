@@ -4,7 +4,12 @@ import AddToCartButton from "@/components/AddToCartButton";
 import ProductCard from "@/components/ProductCard";
 import ProductGallery from "@/components/ProductGallery";
 import { elementColors } from "@/data/products";
+import { products } from "@/data/products";
 import { getProductBySlug, getRelatedProducts } from "@/lib/products";
+
+export function generateStaticParams() {
+  return products.map((p) => ({ slug: p.slug }));
+}
 
 type Props = {
   params: Promise<{ slug: string }>;

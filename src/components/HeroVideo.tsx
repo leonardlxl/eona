@@ -2,31 +2,20 @@
 
 import { useRef, useState } from "react";
 
-const DEFAULT_VIDEO =
-  "https://cdn.coverr.co/videos/coverr-young-woman-in-a-white-dress-posing-5555/1080p.mp4";
-const DEFAULT_POSTER =
-  "https://placehold.co/1920x1080/1a2a3a/e8f6fc?text=Your+Hero+Video+Poster";
-
 type Props = {
-  /** Prefer local: /videos/hero.mp4 — falls back to demo video if missing */
+  /** Local video: /videos/hero.mp4 — add your file to public/videos/ */
   videoSrc?: string;
   posterSrc?: string;
 };
 
 export default function HeroVideo({
   videoSrc = "/videos/hero.mp4",
-  posterSrc = DEFAULT_POSTER,
+  posterSrc = "/images/hero-poster.svg",
 }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const [playing, setPlaying] = useState(true);
-  const [currentSrc, setCurrentSrc] = useState(videoSrc);
-
-  const handleVideoError = () => {
-    if (currentSrc !== DEFAULT_VIDEO) {
-      setCurrentSrc(DEFAULT_VIDEO);
-    }
-  };
+  const [videoReady, setVideoReady] = useState(false);
 
   const toggleMute = () => {
     if (!videoRef.current) return;
@@ -35,7 +24,7 @@ export default function HeroVideo({
   };
 
   const togglePlay = () => {
-    if (!videoRef.current) return;
+    if (!videoRef.current || !videoReady) return;
     if (videoRef.current.paused) {
       void videoRef.current.play();
       setPlaying(true);
@@ -51,17 +40,26 @@ export default function HeroVideo({
 
   return (
     <section className="relative h-screen min-h-[600px] w-full overflow-hidden bg-slate-900">
+      {/* CSS fallback — always works, no external CDN */}
+      <div
+        className="hero-gradient-fallback absolute inset-0"
+        aria-hidden={videoReady}
+      />
+
       <video
         ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover"
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+          videoReady ? "opacity-100" : "opacity-0"
+        }`}
         autoPlay
         muted
         loop
         playsInline
         poster={posterSrc}
-        onError={handleVideoError}
+        onCanPlay={() => setVideoReady(true)}
+        onError={() => setVideoReady(false)}
       >
-        <source src={currentSrc} type="video/mp4" />
+        <source src={videoSrc} type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-slate-900/20 to-slate-900/70" />
@@ -77,22 +75,24 @@ export default function HeroVideo({
           Genshin-inspired anime fashion — cinematic style, everyday wear
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <button
-            type="button"
-            onClick={togglePlay}
-            className="rounded-full border border-white/40 bg-white/10 px-5 py-2 text-sm backdrop-blur-sm transition hover:bg-white/20"
-          >
-            {playing ? "Pause" : "Play"}
-          </button>
-          <button
-            type="button"
-            onClick={toggleMute}
-            className="rounded-full border border-white/40 bg-white/10 px-5 py-2 text-sm backdrop-blur-sm transition hover:bg-white/20"
-          >
-            {muted ? "Unmute" : "Mute"}
-          </button>
-        </div>
+        {videoReady && (
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={togglePlay}
+              className="rounded-full border border-white/40 bg-white/10 px-5 py-2 text-sm backdrop-blur-sm transition hover:bg-white/20"
+            >
+              {playing ? "Pause" : "Play"}
+            </button>
+            <button
+              type="button"
+              onClick={toggleMute}
+              className="rounded-full border border-white/40 bg-white/10 px-5 py-2 text-sm backdrop-blur-sm transition hover:bg-white/20"
+            >
+              {muted ? "Unmute" : "Mute"}
+            </button>
+          </div>
+        )}
       </div>
 
       <button
@@ -105,9 +105,11 @@ export default function HeroVideo({
         <span className="animate-bounce text-xl">↓</span>
       </button>
 
-      <p className="absolute bottom-3 right-4 z-10 hidden text-[10px] text-white/40 sm:block">
-        Replace video in public/videos/hero.mp4
-      </p>
+      {!videoReady && (
+        <p className="absolute bottom-3 right-4 z-10 hidden text-[10px] text-white/50 sm:block">
+          Add public/videos/hero.mp4 for video
+        </p>
+      )}
     </section>
   );
 }
