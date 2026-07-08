@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-sky-mist: #e8f6fc;
+  --color-cloud-white: #fafcff;
+  --color-teyvat-gold: #e8c468;
+  --color-teyvat-blue: #7ec8e3;
+  --color-soft-lavender: #e8e0f5;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, var(--color-sky-mist) 0%, var(--color-cloud-white) 40%);
+  color: #3d4f5f;
+  font-family: var(--font-sans);
+  min-height: 100vh;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.card-soft {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 32px rgba(126, 200, 227, 0.12);
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-sky-400 to-cyan-400 px-6 py-2.5 text-sm font-medium text-white shadow-md transition hover:from-sky-500 hover:to-cyan-500 hover:shadow-lg active:scale-[0.98];
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center rounded-full border-2 border-sky-300 bg-white/80 px-6 py-2.5 text-sm font-medium text-sky-700 transition hover:border-sky-400 hover:bg-sky-50 active:scale-[0.98];
+}
