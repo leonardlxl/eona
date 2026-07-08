@@ -1,18 +1,29 @@
 import Link from "next/link";
-import { mirrorSiteUrl, primarySiteUrl } from "@/lib/site";
+import { hasVercelMirror, mirrorSiteUrl, primarySiteUrl } from "@/lib/site";
 
 export default function Footer() {
   return (
     <footer className="mt-auto border-t border-sky-100 bg-white/60">
       <div className="mx-auto max-w-6xl px-4 py-3 text-center text-xs text-slate-500 sm:px-6">
-        Slow or blocked? Try the{" "}
-        <a href={mirrorSiteUrl} className="text-sky-600 hover:underline">
-          China-friendly mirror
-        </a>{" "}
-        or{" "}
-        <a href={primarySiteUrl} className="text-sky-600 hover:underline">
-          global site
-        </a>
+        {hasVercelMirror ? (
+          <>
+            Slow or blocked? Try the{" "}
+            <a href={mirrorSiteUrl} className="text-sky-600 hover:underline">
+              GitHub mirror
+            </a>{" "}
+            or{" "}
+            <a href={primarySiteUrl} className="text-sky-600 hover:underline">
+              Vercel site
+            </a>
+          </>
+        ) : (
+          <>
+            Official site:{" "}
+            <a href={mirrorSiteUrl} className="text-sky-600 hover:underline">
+              {mirrorSiteUrl}
+            </a>
+          </>
+        )}
       </div>
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-3 sm:px-6">
         <div>

@@ -6,6 +6,7 @@ const basePath = process.env.BASE_PATH || "";
 const nextConfig: NextConfig = {
   ...(isStaticExport ? { output: "export" as const } : {}),
   basePath,
+  assetPrefix: basePath ? `${basePath}/` : undefined,
   images: {
     unoptimized: true,
   },

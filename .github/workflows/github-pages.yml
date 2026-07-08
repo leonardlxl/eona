@@ -30,7 +30,6 @@ jobs:
       - name: Build static site for GitHub Pages
         run: STATIC_EXPORT=1 BASE_PATH=/teyvat-closet-intl npm run build
         env:
-          NEXT_PUBLIC_PRIMARY_URL: https://eona.vercel.app
           NEXT_PUBLIC_MIRROR_URL: https://leonardlxl.github.io/teyvat-closet-intl/
 
       - uses: actions/upload-pages-artifact@v3
