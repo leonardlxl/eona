@@ -45,9 +45,11 @@ gh repo create teyvat-closet-intl --public --source=. --remote=origin --push
 4. Framework 会自动识别为 **Next.js**，直接点 **Deploy**  
 5. 等待 1–3 分钟，得到公网地址，例如：
 
-   `https://teyvat-closet-intl.vercel.app`
+   `https://eonalab.vercel.app`（在 Vercel 把项目名改为 `eonalab` 或添加该域名）
 
 把这个链接发给别人即可访问。
+
+**重要：** Settings → Deployment Protection → 关闭，否则访客会看到「Login to Vercel」。
 
 ---
 
@@ -55,10 +57,13 @@ gh repo create teyvat-closet-intl --public --source=. --remote=origin --push
 
 在 Vercel → Project → Settings → Environment Variables 添加：
 
-| 变量名 | 值（部署后填写） |
-|--------|------------------|
-| `NEXT_PUBLIC_INTL_SITE_URL` | 你的 Vercel 地址 |
+| 变量名 | 值 |
+|--------|-----|
+| `NEXT_PUBLIC_PRIMARY_URL` | `https://eonalab.vercel.app` |
+| `NEXT_PUBLIC_MIRROR_URL` | `https://leonardlxl.github.io/eona/` |
 | `NEXT_PUBLIC_CN_SITE_URL` | 中文版地址（若以后有） |
+
+添加后 **Redeploy** 一次。
 
 ---
 

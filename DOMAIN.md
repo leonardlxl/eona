@@ -13,7 +13,7 @@
 | 方案 | 地址示例 | 费用 | 说明 |
 |------|----------|------|------|
 | GitHub Pages（当前） | `leonardlxl.github.io/eona/` | 免费 | 已是最简单的免费方案之一 |
-| Vercel | `eona-xxx.vercel.app` | 免费 | `eona.vercel.app` 已被别人占用 |
+| Vercel | `eonalab.vercel.app` | 免费 | 推荐；`eona.vercel.app` 已被别人占用 |
 | Cloudflare Pages | `eona.pages.dev` | 免费 | 需在 cloudflare.com 部署同一仓库 |
 | 买自己的域名 | `eona.com` / `eona.style` | 约 $10–15/年 | **最短、最专业**，可绑 GitHub 或 Vercel |
 

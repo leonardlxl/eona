@@ -3,8 +3,8 @@ export const mirrorSiteUrl =
   process.env.NEXT_PUBLIC_MIRROR_URL ?? "https://leonardlxl.github.io/eona/";
 
 /**
- * Vercel URL — set NEXT_PUBLIC_PRIMARY_URL in Vercel dashboard to your Visit link.
- * Note: eona.vercel.app is used by another project; use your assigned *.vercel.app URL.
+ * Vercel URL — set NEXT_PUBLIC_PRIMARY_URL in Vercel (e.g. https://eonalab.vercel.app).
+ * eona.vercel.app is taken by another project.
  */
 export const primarySiteUrl =
   process.env.NEXT_PUBLIC_PRIMARY_URL || mirrorSiteUrl;

@@ -31,6 +31,7 @@ jobs:
         run: STATIC_EXPORT=1 BASE_PATH=/eona npm run build
         env:
           NEXT_PUBLIC_MIRROR_URL: https://leonardlxl.github.io/eona/
+          NEXT_PUBLIC_PRIMARY_URL: https://eonalab.vercel.app
 
       - uses: actions/upload-pages-artifact@v3
         with:
