@@ -1,84 +1,70 @@
 import Link from "next/link";
-import { hasVercelMirror, mirrorSiteUrl, primarySiteUrl } from "@/lib/site";
+import { primarySiteUrl } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer className="mt-auto border-t border-sky-100 bg-white/60">
-      <div className="mx-auto max-w-6xl px-4 py-3 text-center text-xs text-slate-500 sm:px-6">
-        {hasVercelMirror ? (
-          <>
-            Slow or blocked? Try the{" "}
-            <a href={mirrorSiteUrl} className="text-sky-600 hover:underline">
-              GitHub mirror
-            </a>{" "}
-            or{" "}
-            <a href={primarySiteUrl} className="text-sky-600 hover:underline">
-              Vercel site
-            </a>
-          </>
-        ) : (
-          <>
-            Official site:{" "}
-            <a href={mirrorSiteUrl} className="text-sky-600 hover:underline">
-              {mirrorSiteUrl}
-            </a>
-          </>
-        )}
-      </div>
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-3 sm:px-6">
+    <footer className="mt-auto border-t border-white/5 bg-[#08080c]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-3 sm:px-6">
         <div>
-          <p className="text-lg font-bold text-sky-800">Eona</p>
-          <p className="mt-2 text-sm leading-relaxed text-slate-500">
-            Genshin-inspired anime fashion for travelers worldwide. Cute, fresh,
-            and easy to wear.
-          </p>
-          <p className="mt-3 text-xs text-slate-400">
-            🌍 Ships internationally · Prices in USD
+          <p className="text-lg font-bold text-white">Eona</p>
+          <p className="mt-3 text-sm leading-relaxed text-white/50">
+            A digital studio at the intersection of visual art, interactive
+            entertainment, and technology. We craft worlds people want to
+            explore.
           </p>
         </div>
 
         <div>
-          <p className="mb-3 text-sm font-semibold text-slate-700">Quick Links</p>
-          <ul className="space-y-2 text-sm text-slate-500">
+          <p className="mb-4 text-sm font-semibold text-white/80">Studio</p>
+          <ul className="space-y-2 text-sm text-white/50">
             <li>
-              <Link href="/" className="hover:text-sky-600">
-                Home
+              <Link href="/work" className="hover:text-violet-400">
+                Work
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-sky-600">
+              <Link href="/about" className="hover:text-violet-400">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/products" className="hover:text-sky-600">
-                Shop
-              </Link>
-            </li>
-            <li>
-              <Link href="/cart" className="hover:text-sky-600">
-                Cart
+              <Link href="/contact" className="hover:text-violet-400">
+                Contact
               </Link>
             </li>
           </ul>
         </div>
 
         <div>
-          <p className="mb-3 text-sm font-semibold text-slate-700">Contact</p>
-          <ul className="space-y-2 text-sm text-slate-500">
-            <li>📧 hello@eona.style</li>
+          <p className="mb-4 text-sm font-semibold text-white/80">Connect</p>
+          <ul className="space-y-2 text-sm text-white/50">
+            <li>hello@eona.studio</li>
             <li>
-              <span className="mr-3 hover:text-sky-600">Instagram</span>
-              <span className="mr-3 hover:text-sky-600">TikTok</span>
-              <span className="hover:text-sky-600">Discord</span>
+              <span className="hover:text-violet-400">LinkedIn</span>
+              {" · "}
+              <span className="hover:text-violet-400">ArtStation</span>
+            </li>
+            <li>
+              <span className="hover:text-violet-400">Twitter / X</span>
+              {" · "}
+              <span className="hover:text-violet-400">Discord</span>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="border-t border-sky-100 py-4 text-center text-xs text-slate-400">
-        © {new Date().getFullYear()} Eona · Fan-made showcase (not
-        affiliated with miHoYo / HoYoverse)
+      <div className="border-t border-white/5 py-5 text-center text-xs text-white/30">
+        <p>
+          © {new Date().getFullYear()} Eona Studio · Digital Visual Art & Games
+        </p>
+        <p className="mt-1">
+          <a
+            href={primarySiteUrl}
+            className="hover:text-violet-400"
+          >
+            {primarySiteUrl.replace(/^https?:\/\//, "")}
+          </a>
+        </p>
       </div>
     </footer>
   );

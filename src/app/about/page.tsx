@@ -1,70 +1,90 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "About | Eona Studio",
+  description:
+    "Eona is a digital studio blending visual art, game development, and creative technology.",
+};
+
 export default function AboutPage() {
   return (
     <div>
-      <section className="border-b border-sky-100 bg-gradient-to-b from-sky-50 to-white px-4 py-16 text-center sm:px-6 sm:py-20">
-        <span className="text-4xl">✦</span>
-        <h1 className="mt-4 text-3xl font-bold text-sky-900 sm:text-4xl">
-          About Eona
+      <section className="border-b border-white/5 px-4 py-20 text-center sm:px-6">
+        <p className="section-label">About Eona</p>
+        <h1 className="mt-4 text-4xl font-bold text-white sm:text-5xl">
+          Art meets engineering
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-slate-500">
-          A global anime fashion brand inspired by the spirit of adventure
+        <p className="mx-auto mt-4 max-w-2xl text-white/50">
+          We are a remote-first studio building at the frontier of games, digital
+          art, and interactive technology.
         </p>
       </section>
 
-      <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
-        <div className="card-soft space-y-6 rounded-[2rem] p-8 text-sm leading-relaxed text-slate-500 sm:p-10 sm:text-base">
-          <h2 className="text-xl font-bold text-sky-900">Who we are</h2>
+      <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+        <div className="glass-panel space-y-6 rounded-2xl p-8 text-sm leading-relaxed text-white/60 sm:p-10 sm:text-base">
+          <h2 className="text-xl font-bold text-white">Who we are</h2>
           <p>
-            <strong className="text-slate-700">Eona</strong> was founded
-            by fans who wanted anime-inspired clothing that feels wearable every
-            day — not just for conventions. We draw from the landscapes,
-            elements, and cultures of Teyvat to create pieces that are{" "}
-            <strong className="text-sky-700">cartoon-fresh, clean, and minimal</strong>.
+            <strong className="text-white/90">Eona</strong> was founded by
+            artists and engineers who believe the best digital experiences emerge
+            when visual craft and technical depth work as one discipline. We
+            partner with game studios, entertainment brands, and ambitious
+            founders to ship work that feels{" "}
+            <strong className="text-violet-300">cinematic, playable, and alive</strong>.
           </p>
           <p>
-            Our global storefront serves travelers worldwide with English
-            support and USD pricing. We focus on quality presentation, thoughtful
-            design, and a shopping experience that feels as light as a breeze
-            through Mondstadt.
+            Our team spans game design, environment and character art, real-time
+            VFX, technical art, and pipeline engineering — united by a shared
+            obsession with world-building.
           </p>
 
-          <h2 className="pt-4 text-xl font-bold text-sky-900">Our values</h2>
-          <ul className="list-inside list-disc space-y-2">
-            <li>
-              <strong className="text-slate-600">Creativity</strong> — fan-made
-              designs with original flair
-            </li>
-            <li>
-              <strong className="text-slate-600">Accessibility</strong> — simple
-              styles anyone can wear
-            </li>
-            <li>
-              <strong className="text-slate-600">Community</strong> — built for
-              adventurers and anime lovers everywhere
-            </li>
+          <h2 className="pt-4 text-xl font-bold text-white">What we believe</h2>
+          <ul className="space-y-3">
+            {[
+              {
+                title: "Craft over volume",
+                text: "We take on fewer projects to protect creative quality.",
+              },
+              {
+                title: "Tools serve vision",
+                text: "Technology should amplify imagination, not replace it.",
+              },
+              {
+                title: "Play is universal",
+                text: "Whether a game or an installation, we design for wonder.",
+              },
+            ].map((item) => (
+              <li key={item.title} className="flex gap-3">
+                <span className="text-violet-400">◈</span>
+                <span>
+                  <strong className="text-white/80">{item.title}</strong> — {item.text}
+                </span>
+              </li>
+            ))}
           </ul>
-
-          <p className="border-t border-sky-100 pt-6 text-xs text-slate-400">
-            Not affiliated with miHoYo or HoYoverse. All designs are original
-            fan creations for demonstration purposes.
-          </p>
         </div>
 
-        <div className="card-soft mt-8 rounded-3xl p-8">
-          <h2 className="font-bold text-sky-900">Contact & Shipping</h2>
-          <ul className="mt-4 space-y-2 text-sm text-slate-500">
-            <li>🌍 International shipping available (demo)</li>
-            <li>📧 hello@eona.style</li>
-            <li>💬 Discord: eona-style</li>
-            <li>📸 Instagram / TikTok: @eona.style</li>
-          </ul>
+        <div className="glass-panel mt-8 rounded-2xl p-8">
+          <h2 className="font-bold text-white">Capabilities</h2>
+          <div className="mt-4 grid gap-3 text-sm text-white/50 sm:grid-cols-2">
+            {[
+              "Game prototyping & vertical slices",
+              "Art direction & key visual",
+              "Character & environment design",
+              "Real-time cinematics & trailers",
+              "Technical art & shader development",
+              "Pipeline tooling & automation",
+            ].map((cap) => (
+              <p key={cap} className="flex gap-2">
+                <span className="text-cyan-400">·</span>
+                {cap}
+              </p>
+            ))}
+          </div>
         </div>
 
         <div className="mt-10 text-center">
-          <Link href="/products" className="btn-primary">
-            Browse our collection
+          <Link href="/work" className="btn-primary">
+            Explore our work →
           </Link>
         </div>
       </div>

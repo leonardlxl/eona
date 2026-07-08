@@ -3,8 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import MirrorBanner from "@/components/MirrorBanner";
-import { CartProvider } from "@/context/CartContext";
+import { primarySiteUrl } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,9 +11,25 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Eona | Genshin-Inspired Anime Fashion",
+  metadataBase: new URL(primarySiteUrl),
+  title: {
+    default: "Eona | Digital Visual Art & Game Studio",
+    template: "%s | Eona Studio",
+  },
   description:
-    "Eona — cute, fresh anime fashion inspired by Teyvat. Shop element-themed apparel worldwide. USD pricing.",
+    "Eona is a creative technology studio specializing in game development, digital visual art, and real-time interactive experiences.",
+  openGraph: {
+    title: "Eona | Digital Visual Art & Game Studio",
+    description:
+      "Game development, digital visual art, and real-time interactive experiences.",
+    url: primarySiteUrl,
+    siteName: "Eona",
+    locale: "en_US",
+    type: "website",
+  },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
@@ -25,12 +40,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} flex min-h-screen flex-col antialiased`}>
-        <CartProvider>
-          <MirrorBanner />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </CartProvider>
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );

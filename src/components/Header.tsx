@@ -2,39 +2,39 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCart } from "@/context/CartContext";
-import { cnSiteUrl } from "@/lib/site";
 
 const navItems = [
   { href: "/", label: "Home" },
+  { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
-  const { itemCount, hydrated } = useCart();
   const pathname = usePathname();
 
   const linkClass = (href: string) => {
-    const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
+    const active =
+      href === "/" ? pathname === "/" : pathname.startsWith(href);
     return `rounded-full px-4 py-2 text-sm font-medium transition ${
       active
-        ? "bg-sky-100 text-sky-800"
-        : "text-slate-600 hover:bg-sky-50 hover:text-sky-700"
+        ? "bg-white/10 text-white"
+        : "text-white/60 hover:bg-white/5 hover:text-white"
     }`;
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/60 bg-white/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="/" className="group flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-300 to-cyan-400 text-lg shadow-sm">
-            ✦
+    <header className="sticky top-0 z-50 border-b border-white/5 bg-[#08080c]/80 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+        <Link href="/" className="group flex items-center gap-3">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-cyan-500 text-sm font-bold text-white shadow-lg shadow-violet-900/40">
+            E
           </span>
           <div>
-            <p className="text-base font-bold tracking-wide text-sky-800">
-              Eona
+            <p className="text-base font-bold tracking-wide text-white">Eona</p>
+            <p className="text-[10px] tracking-widest text-white/40 uppercase">
+              Digital Studio
             </p>
-            <p className="text-[10px] text-sky-500">Genshin-Inspired Fashion</p>
           </div>
         </Link>
 
@@ -44,56 +44,19 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-          <span className="mx-2 text-slate-300">|</span>
-          <Link
-            href="/products"
-            className="rounded-full px-3 py-2 text-xs text-slate-400 transition hover:text-sky-600"
-          >
-            Shop
-          </Link>
-          <a
-            href={cnSiteUrl}
-            className="rounded-full px-3 py-2 text-xs text-slate-400 transition hover:text-sky-600"
-            title="Chinese site"
-          >
-            中文站
-          </a>
         </nav>
 
-        <div className="flex items-center gap-2">
-          <Link
-            href="/products"
-            className="rounded-full px-3 py-2 text-xs text-slate-500 hover:bg-sky-50 sm:hidden"
-          >
-            Shop
-          </Link>
-          <Link
-            href="/cart"
-            className="relative flex items-center gap-2 rounded-full bg-sky-50 px-4 py-2 text-sm font-medium text-sky-700 transition hover:bg-sky-100"
-          >
-            <span>🛒</span>
-            <span className="hidden sm:inline">Cart</span>
-            {hydrated && itemCount > 0 && (
-              <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-gradient-to-r from-amber-400 to-orange-400 px-1 text-[10px] font-bold text-white">
-                {itemCount}
-              </span>
-            )}
-          </Link>
-        </div>
+        <Link href="/contact" className="btn-primary hidden text-xs sm:inline-flex">
+          Start a project
+        </Link>
       </div>
 
-      <nav className="flex justify-center gap-1 border-t border-sky-100/80 px-4 py-2 sm:hidden">
+      <nav className="flex justify-center gap-1 border-t border-white/5 px-4 py-2 sm:hidden">
         {navItems.map((item) => (
           <Link key={item.href} href={item.href} className={linkClass(item.href)}>
             {item.label}
           </Link>
         ))}
-        <a
-          href={cnSiteUrl}
-          className="rounded-full px-3 py-1.5 text-xs text-slate-400 hover:bg-sky-50"
-        >
-          中文站
-        </a>
       </nav>
     </header>
   );
