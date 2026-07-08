@@ -32,9 +32,9 @@ export default function Header() {
           </span>
           <div>
             <p className="text-base font-bold tracking-wide text-sky-800">
-              Teyvat Closet
+              Eona
             </p>
-            <p className="text-[10px] text-sky-500">Global · Anime Fashion</p>
+            <p className="text-[10px] text-sky-500">Genshin-Inspired Fashion</p>
           </div>
         </Link>
 

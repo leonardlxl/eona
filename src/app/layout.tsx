@@ -11,9 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Teyvat Closet | Genshin-Inspired Anime Fashion",
+  title: "Eona | Genshin-Inspired Anime Fashion",
   description:
-    "Cute, fresh anime fashion inspired by Teyvat. Shop element-themed apparel worldwide. USD pricing, international shipping ready.",
+    "Eona — cute, fresh anime fashion inspired by Teyvat. Shop element-themed apparel worldwide. USD pricing.",
 };
 
 export default function RootLayout({

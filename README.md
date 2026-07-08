@@ -1,4 +1,4 @@
-# Teyvat Closet — International (EN)
+# Eona — International Storefront (EN)
 
 Global English storefront for Genshin-inspired anime fashion.
 

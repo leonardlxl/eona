@@ -16,7 +16,7 @@ export default function HomePage() {
             Our Story
           </h2>
           <p className="mt-6 text-base leading-relaxed text-slate-500 sm:text-lg">
-            <strong className="text-slate-700">Teyvat Closet</strong> brings the
+            <strong className="text-slate-700">Eona</strong> brings the
             colors and spirit of Teyvat into wearable anime fashion. We believe
             great style should feel{" "}
             <strong className="text-sky-700">cute, fresh, and effortless</strong>

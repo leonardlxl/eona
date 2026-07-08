@@ -27,7 +27,7 @@ export default function Footer() {
       </div>
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-3 sm:px-6">
         <div>
-          <p className="text-lg font-bold text-sky-800">Teyvat Closet</p>
+          <p className="text-lg font-bold text-sky-800">Eona</p>
           <p className="mt-2 text-sm leading-relaxed text-slate-500">
             Genshin-inspired anime fashion for travelers worldwide. Cute, fresh,
             and easy to wear.
@@ -66,7 +66,7 @@ export default function Footer() {
         <div>
           <p className="mb-3 text-sm font-semibold text-slate-700">Contact</p>
           <ul className="space-y-2 text-sm text-slate-500">
-            <li>📧 hello@teyvat-closet.com</li>
+            <li>📧 hello@eona.style</li>
             <li>
               <span className="mr-3 hover:text-sky-600">Instagram</span>
               <span className="mr-3 hover:text-sky-600">TikTok</span>
@@ -77,7 +77,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-sky-100 py-4 text-center text-xs text-slate-400">
-        © {new Date().getFullYear()} Teyvat Closet · Fan-made showcase (not
+        © {new Date().getFullYear()} Eona · Fan-made showcase (not
         affiliated with miHoYo / HoYoverse)
       </div>
     </footer>

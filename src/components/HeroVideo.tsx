@@ -69,7 +69,7 @@ export default function HeroVideo({
           Premium Lookbook
         </span>
         <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-          Teyvat Closet
+          Eona
         </h1>
         <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/80 sm:text-base">
           Genshin-inspired anime fashion — cinematic style, everyday wear
